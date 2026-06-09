@@ -6,9 +6,10 @@
   "exports": {
     ".": { "types": "./src/types.ts", "import": "./src/types.ts" },
     "./validate": { "types": "./src/validate-dtir.ts", "import": "./src/validate-dtir.ts" },
+    "./fixtures": { "types": "./src/fixtures.ts", "import": "./src/fixtures.ts" },
     "./schema": "./schema/dtir-0.1.schema.json"
   },
-  "files": ["src", "schema", "README.md"],
+  "files": ["src", "schema", "fixtures", "README.md"],
   "scripts": {
     "typecheck": "tsc --noEmit",
     "validate": "tsx src/validate-dtir.ts"
