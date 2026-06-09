@@ -163,15 +163,15 @@ flowchart LR
 
 ## 7. 各 MCP から見た DTIR
 
-| MCP | DTIR との関係 |
-|||
-| `dtir-ooxml-reader-mcp` | docx を解析し DTIR を**生成**（`anchor`/`text`/言語ヒント/`context`） |
-| `pdf-reader`（既存） | pdf から DTIR を生成（`anchor` は page/mcid/bbox 系） |
-| `dtir-ooxml-writer-mcp` | DTIR ＋ 元 docx を入力に、`id` でパッチして訳 docx を**出力** |
-| `pdf-writer`（新規・最難） | 同上を pdf で。文字数伸縮のレイアウト再構成が本丸 |
-| `ooxml-spec` / `pdf-spec` | reader/writer の「不可触ゾーン」判定の**一次情報**を供給（DTIR には直接触れない） |
-| `deepl`（既存） | `group` 単位で `translation` を埋める |
-| `xcomet`（既存） | `quality` を埋める |
+| MCP                        | DTIR との関係                                                                     |
+| -------------------------- | --------------------------------------------------------------------------------- |
+| `dtir-ooxml-reader-mcp`    | docx を解析し DTIR を**生成**（`anchor`/`text`/言語ヒント/`context`）             |
+| `pdf-reader`（既存）       | pdf から DTIR を生成（`anchor` は page/mcid/bbox 系）                             |
+| `dtir-ooxml-writer-mcp`    | DTIR ＋ 元 docx を入力に、`id` でパッチして訳 docx を**出力**                     |
+| `pdf-writer`（新規・最難） | 同上を pdf で。文字数伸縮のレイアウト再構成が本丸                                 |
+| `ooxml-spec` / `pdf-spec`  | reader/writer の「不可触ゾーン」判定の**一次情報**を供給（DTIR には直接触れない） |
+| `deepl`（既存）            | `group` 単位で `translation` を埋める                                             |
+| `xcomet`（既存）           | `quality` を埋める                                                                |
 
 ## 8. バージョニング
 
