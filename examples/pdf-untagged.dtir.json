@@ -1,0 +1,102 @@
+{
+  "irVersion": "0.1",
+  "source": {
+    "format": "pdf",
+    "fileName": "untagged-scan-export.pdf",
+    "sha256": "a0b1c2d3e4f5061728394a5b6c7d8e9f00112233445566778899aabbccddeeff",
+    "byteSize": 198452
+  },
+  "language": {
+    "default": { "value": null, "source": "none" },
+    "target": "en-GB",
+    "multilingual": {
+      "isMultilingual": true,
+      "score": 0.71,
+      "method": "whole-doc-detect",
+      "languagesPresent": ["fr-FR", "de-DE"]
+    }
+  },
+  "segments": [
+    {
+      "id": "pg1-b0",
+      "order": 0,
+      "anchor": {
+        "format": "pdf",
+        "ref": { "page": 1, "mcid": 0, "structRef": null, "bbox": [72, 700, 523, 718] }
+      },
+      "role": "body",
+      "text": {
+        "source": "Le contrat entre en vigueur le 1er janvier.",
+        "hasInlineFormatting": false,
+        "space": "default"
+      },
+      "language": {
+        "value": "fr-FR",
+        "confidence": 0.95,
+        "source": "detect",
+        "candidates": [{ "value": "fr-FR", "confidence": 0.95 }]
+      },
+      "translatable": true,
+      "skipReason": null,
+      "group": "fr-FR",
+      "context": { "prev": null, "next": "pg1-h0", "parent": null },
+      "translation": null,
+      "quality": null
+    },
+    {
+      "id": "pg1-h0",
+      "order": 1,
+      "anchor": {
+        "format": "pdf",
+        "ref": { "page": 1, "mcid": 1, "structRef": null, "bbox": [72, 660, 200, 678] }
+      },
+      "role": "heading",
+      "text": {
+        "source": "§3",
+        "hasInlineFormatting": false,
+        "space": "default"
+      },
+      "language": {
+        "value": null,
+        "confidence": 0.0,
+        "source": "detect"
+      },
+      "translatable": false,
+      "skipReason": "non-linguistic-zxx",
+      "group": null,
+      "context": { "prev": "pg1-b0", "next": "pg1-b1", "parent": null },
+      "translation": null,
+      "quality": null
+    },
+    {
+      "id": "pg1-b1",
+      "order": 2,
+      "anchor": {
+        "format": "pdf",
+        "ref": { "page": 1, "mcid": 2, "structRef": null, "bbox": [72, 600, 523, 658] }
+      },
+      "role": "body",
+      "text": {
+        "source": "Die Vertragsbedingungen gelten für beide Parteien.",
+        "hasInlineFormatting": false,
+        "space": "default"
+      },
+      "language": {
+        "value": "de-DE",
+        "confidence": 0.93,
+        "source": "detect"
+      },
+      "translatable": true,
+      "skipReason": null,
+      "group": "de-DE",
+      "context": { "prev": "pg1-h0", "next": null, "parent": null },
+      "translation": null,
+      "quality": null
+    }
+  ],
+  "stats": {
+    "segmentCount": 3,
+    "translatableCount": 2,
+    "groupCount": 2
+  }
+}

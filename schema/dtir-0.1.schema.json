@@ -1,0 +1,254 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/shuji-bonji/mcps/doc-translation-ir/schema/dtir-0.1.schema.json",
+  "title": "DTIR — Document Translation Intermediate Representation",
+  "description": "reader → language-resolve → translate → xcomet → writer を素通りする中間表現（セグメント表）。v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["irVersion", "source", "language", "segments", "stats"],
+  "properties": {
+    "irVersion": { "const": "0.1" },
+    "source": { "$ref": "#/$defs/documentSource" },
+    "language": { "$ref": "#/$defs/documentLanguage" },
+    "segments": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/segment" }
+    },
+    "stats": { "$ref": "#/$defs/documentStats" },
+    "extensions": { "type": "object" }
+  },
+  "$defs": {
+    "bcp47": {
+      "type": ["string", "null"],
+      "description": "BCP 47 言語タグ。null は未確定。",
+      "examples": ["en-GB", "fr-CA", "nl-NL", "de-DE", "ja-JP", "zxx"]
+    },
+    "docFormat": { "enum": ["docx", "pdf"] },
+    "documentSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["format", "fileName", "sha256", "byteSize"],
+      "properties": {
+        "format": { "$ref": "#/$defs/docFormat" },
+        "fileName": { "type": "string" },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "byteSize": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "documentLanguage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["default", "target", "multilingual"],
+      "properties": {
+        "default": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["value", "source"],
+          "properties": {
+            "value": { "$ref": "#/$defs/bcp47" },
+            "source": { "enum": ["container-default", "none"] }
+          }
+        },
+        "target": { "$ref": "#/$defs/bcp47" },
+        "multilingual": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["isMultilingual", "score", "method", "languagesPresent"],
+          "properties": {
+            "isMultilingual": { "type": "boolean" },
+            "score": { "type": "number", "minimum": 0, "maximum": 1 },
+            "method": {
+              "enum": [
+                "declared",
+                "tag-diversity",
+                "script-diversity",
+                "whole-doc-detect",
+                "per-segment"
+              ]
+            },
+            "languagesPresent": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "documentStats": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["segmentCount", "translatableCount", "groupCount"],
+      "properties": {
+        "segmentCount": { "type": "integer", "minimum": 0 },
+        "translatableCount": { "type": "integer", "minimum": 0 },
+        "groupCount": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "anchor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["format", "ref"],
+      "properties": {
+        "format": { "$ref": "#/$defs/docFormat" },
+        "ref": {
+          "type": "object",
+          "description": "フォーマット固有・不透明。reader が書き writer が読む。中間ステージは改変しない。"
+        }
+      }
+    },
+    "languageCandidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "confidence"],
+      "properties": {
+        "value": { "type": "string" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "segmentLanguage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "confidence", "source"],
+      "properties": {
+        "value": { "$ref": "#/$defs/bcp47" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "source": {
+          "enum": ["tag", "detect", "inherit", "default", "declared"]
+        },
+        "candidates": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/languageCandidate" }
+        }
+      }
+    },
+    "segmentRun": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "source 内オフセットは UTF-16 コードユニット・半開区間 [start,end)・0始まり。",
+      "required": ["runId", "start", "end"],
+      "properties": {
+        "runId": { "type": "string" },
+        "start": { "type": "integer", "minimum": 0 },
+        "end": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "segmentText": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source", "hasInlineFormatting", "space"],
+      "properties": {
+        "source": { "type": "string" },
+        "hasInlineFormatting": { "type": "boolean" },
+        "runs": {
+          "type": "array",
+          "description": "任意・前方互換。各ランの source 内オフセット。v0.1 writer は無視(collapse)してよい。",
+          "items": { "$ref": "#/$defs/segmentRun" }
+        },
+        "space": { "enum": ["default", "preserve"] }
+      }
+    },
+    "segmentContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["prev", "next", "parent"],
+      "properties": {
+        "prev": { "type": ["string", "null"] },
+        "next": { "type": ["string", "null"] },
+        "parent": { "type": ["string", "null"] }
+      }
+    },
+    "segmentTranslation": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["text", "engine", "sourceLangUsed", "targetLang", "at"],
+      "properties": {
+        "text": { "type": "string" },
+        "engine": { "type": "string" },
+        "sourceLangUsed": { "$ref": "#/$defs/bcp47" },
+        "targetLang": { "type": "string" },
+        "at": { "type": "string", "format": "date-time" }
+      }
+    },
+    "qualityError": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["text", "start", "end", "severity"],
+      "properties": {
+        "text": { "type": "string" },
+        "start": { "type": "integer", "minimum": 0 },
+        "end": { "type": "integer", "minimum": 0 },
+        "severity": { "enum": ["minor", "major", "critical"] },
+        "suggestion": { "type": ["string", "null"] }
+      }
+    },
+    "segmentQuality": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["score", "hasCritical", "errors"],
+      "properties": {
+        "score": { "type": "number", "minimum": 0, "maximum": 1 },
+        "hasCritical": { "type": "boolean" },
+        "errors": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/qualityError" }
+        }
+      }
+    },
+    "segment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "order",
+        "anchor",
+        "role",
+        "text",
+        "language",
+        "translatable",
+        "skipReason",
+        "group",
+        "context",
+        "translation",
+        "quality"
+      ],
+      "properties": {
+        "id": { "type": "string" },
+        "order": { "type": "integer", "minimum": 0 },
+        "anchor": { "$ref": "#/$defs/anchor" },
+        "role": {
+          "enum": [
+            "heading",
+            "body",
+            "caption",
+            "footnote",
+            "endnote",
+            "table-cell",
+            "header",
+            "footer",
+            "toc",
+            "list-item",
+            "textbox",
+            "other"
+          ]
+        },
+        "text": { "$ref": "#/$defs/segmentText" },
+        "language": { "$ref": "#/$defs/segmentLanguage" },
+        "translatable": { "type": "boolean" },
+        "skipReason": {
+          "enum": [
+            "field",
+            "non-linguistic-zxx",
+            "numeric",
+            "locked",
+            "empty",
+            null
+          ]
+        },
+        "group": { "type": ["string", "null"] },
+        "context": { "$ref": "#/$defs/segmentContext" },
+        "translation": { "$ref": "#/$defs/segmentTranslation" },
+        "quality": { "$ref": "#/$defs/segmentQuality" }
+      }
+    }
+  }
+}

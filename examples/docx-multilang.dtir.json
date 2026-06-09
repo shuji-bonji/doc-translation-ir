@@ -1,0 +1,241 @@
+{
+  "irVersion": "0.1",
+  "source": {
+    "format": "docx",
+    "fileName": "mixed-nl-fr-de.docx",
+    "sha256": "35ba55faef76f366b2dc6e47ff0b2c601ae05aceb5a011b64d707fe5ff07ee79",
+    "byteSize": 48213
+  },
+  "language": {
+    "default": { "value": "nl-NL", "source": "container-default" },
+    "target": "en-GB",
+    "multilingual": {
+      "isMultilingual": true,
+      "score": 0.88,
+      "method": "tag-diversity",
+      "languagesPresent": ["nl-NL", "fr-FR", "de-DE"]
+    }
+  },
+  "segments": [
+    {
+      "id": "p1",
+      "order": 0,
+      "anchor": {
+        "format": "docx",
+        "ref": {
+          "part": "word/document.xml",
+          "path": "/w:document/w:body/w:p[1]",
+          "runIds": ["p1-r0"]
+        }
+      },
+      "role": "heading",
+      "text": {
+        "source": "Jaarverslag 2025",
+        "hasInlineFormatting": false,
+        "space": "default"
+      },
+      "language": {
+        "value": "nl-NL",
+        "confidence": 0.97,
+        "source": "tag",
+        "candidates": [{ "value": "nl-NL", "confidence": 0.97 }]
+      },
+      "translatable": true,
+      "skipReason": null,
+      "group": "nl-NL",
+      "context": { "prev": null, "next": "p2", "parent": null },
+      "translation": {
+        "text": "Annual Report 2025",
+        "engine": "deepl",
+        "sourceLangUsed": "nl",
+        "targetLang": "en-GB",
+        "at": "2026-06-09T01:12:30Z"
+      },
+      "quality": {
+        "score": 0.94,
+        "hasCritical": false,
+        "errors": []
+      }
+    },
+    {
+      "id": "p2",
+      "order": 1,
+      "anchor": {
+        "format": "docx",
+        "ref": {
+          "part": "word/document.xml",
+          "path": "/w:document/w:body/w:p[2]",
+          "runIds": ["p2-r0", "p2-r1", "p2-r2"]
+        }
+      },
+      "role": "body",
+      "text": {
+        "source": "Les résultats du premier trimestre dépassent les prévisions.",
+        "hasInlineFormatting": true,
+        "runs": [
+          { "runId": "p2-r0", "start": 0, "end": 14 },
+          { "runId": "p2-r1", "start": 14, "end": 35 },
+          { "runId": "p2-r2", "start": 35, "end": 60 }
+        ],
+        "space": "default"
+      },
+      "language": {
+        "value": "fr-FR",
+        "confidence": 0.99,
+        "source": "tag"
+      },
+      "translatable": true,
+      "skipReason": null,
+      "group": "fr-FR",
+      "context": { "prev": "p1", "next": "p3", "parent": null },
+      "translation": {
+        "text": "First-quarter results exceed forecasts.",
+        "engine": "deepl",
+        "sourceLangUsed": "fr",
+        "targetLang": "en-GB",
+        "at": "2026-06-09T01:12:31Z"
+      },
+      "quality": {
+        "score": 0.91,
+        "hasCritical": false,
+        "errors": []
+      }
+    },
+    {
+      "id": "p3",
+      "order": 2,
+      "anchor": {
+        "format": "docx",
+        "ref": {
+          "part": "word/document.xml",
+          "path": "/w:document/w:body/w:p[3]",
+          "runIds": ["p3-r0"]
+        }
+      },
+      "role": "body",
+      "text": {
+        "source": "Die Produktion wurde im April vollständig automatisiert.",
+        "hasInlineFormatting": false,
+        "space": "default"
+      },
+      "language": {
+        "value": "de-DE",
+        "confidence": 0.62,
+        "source": "detect",
+        "candidates": [
+          { "value": "de-DE", "confidence": 0.62 },
+          { "value": "nl-NL", "confidence": 0.21 }
+        ]
+      },
+      "translatable": true,
+      "skipReason": null,
+      "group": "de-DE",
+      "context": { "prev": "p2", "next": "h-toc", "parent": null },
+      "translation": null,
+      "quality": null
+    },
+    {
+      "id": "h-toc",
+      "order": 3,
+      "anchor": {
+        "format": "docx",
+        "ref": {
+          "part": "word/document.xml",
+          "path": "/w:document/w:body/w:p[4]",
+          "runIds": ["h-toc-r0"]
+        }
+      },
+      "role": "heading",
+      "text": {
+        "source": "Inhoudsopgave",
+        "hasInlineFormatting": false,
+        "space": "default"
+      },
+      "language": {
+        "value": "nl-NL",
+        "confidence": 0.9,
+        "source": "tag"
+      },
+      "translatable": true,
+      "skipReason": null,
+      "group": "nl-NL",
+      "context": { "prev": "p3", "next": "toc1", "parent": null },
+      "translation": {
+        "text": "Contents",
+        "engine": "deepl",
+        "sourceLangUsed": "nl",
+        "targetLang": "en-GB",
+        "at": "2026-06-09T01:12:32Z"
+      },
+      "quality": {
+        "score": 0.96,
+        "hasCritical": false,
+        "errors": []
+      }
+    },
+    {
+      "id": "toc1",
+      "order": 4,
+      "anchor": {
+        "format": "docx",
+        "ref": {
+          "part": "word/document.xml",
+          "path": "/w:document/w:body/w:p[5]/w:fldSimple",
+          "fieldType": "TOC",
+          "cached": true
+        }
+      },
+      "role": "toc",
+      "text": {
+        "source": "Resultaten\t3",
+        "hasInlineFormatting": false,
+        "space": "preserve"
+      },
+      "language": {
+        "value": "nl-NL",
+        "confidence": 0.5,
+        "source": "default"
+      },
+      "translatable": false,
+      "skipReason": "field",
+      "group": null,
+      "context": { "prev": "h-toc", "next": "n1", "parent": null },
+      "translation": null,
+      "quality": null
+    },
+    {
+      "id": "n1",
+      "order": 5,
+      "anchor": {
+        "format": "docx",
+        "ref": {
+          "part": "word/document.xml",
+          "path": "/w:document/w:body/w:p[6]",
+          "runIds": ["n1-r0"]
+        }
+      },
+      "role": "body",
+      "text": {
+        "source": "€ 1.250.000",
+        "hasInlineFormatting": false,
+        "space": "preserve"
+      },
+      "language": {
+        "value": null,
+        "confidence": 0.0,
+        "source": "detect"
+      },
+      "translatable": false,
+      "skipReason": "numeric",
+      "group": null,
+      "context": { "prev": "toc1", "next": null, "parent": null },
+      "translation": null,
+      "quality": null
+    }
+  ],
+  "stats": {
+    "segmentCount": 6,
+    "translatableCount": 4,
+    "groupCount": 3
+  }
+}

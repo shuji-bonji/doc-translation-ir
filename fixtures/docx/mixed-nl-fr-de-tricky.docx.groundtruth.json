@@ -1,0 +1,128 @@
+{
+  "fixture": "mixed-nl-fr-de-tricky.docx",
+  "description": "混在言語 docx の意地悪ケース集。reader が満たすべき意味を実装非依存で宣言。",
+  "containerDefaultLang": "nl-NL",
+  "expectedMultilingual": true,
+  "expectedLanguagesPresent": [
+    "nl-NL",
+    "fr-FR",
+    "de-DE",
+    "en-US"
+  ],
+  "parts": [
+    "word/document.xml",
+    "word/header1.xml",
+    "word/footer1.xml"
+  ],
+  "segments": [
+    {
+      "key": "heading-nl",
+      "part": "word/document.xml",
+      "role": "heading",
+      "expectSource": "Jaarverslag 2025",
+      "expectLang": "nl-NL",
+      "expectLangSource": "tag",
+      "translatable": true,
+      "skipReason": null,
+      "runCount": 1
+    },
+    {
+      "key": "body-fr-split",
+      "part": "word/document.xml",
+      "role": "body",
+      "expectSource": "Les résultats du premier trimestre dépassent les prévisions.",
+      "expectLang": "fr-FR",
+      "expectLangSource": "tag",
+      "translatable": true,
+      "skipReason": null,
+      "runCount": 3,
+      "note": "ラン分断。reader は text.runs にオフセットを埋め、hasInlineFormatting=true にすべき"
+    },
+    {
+      "key": "body-de-notag",
+      "part": "word/document.xml",
+      "role": "body",
+      "expectSource": "Die Produktion wurde im April vollständig automatisiert.",
+      "expectLang": "de-DE",
+      "expectLangSource": "detect",
+      "translatable": true,
+      "skipReason": null,
+      "runCount": 1,
+      "note": "タグ欠落で既定 nl-NL を継承するが内容は独語。detect が tag/default を覆すべき"
+    },
+    {
+      "key": "toc-title",
+      "part": "word/document.xml",
+      "role": "heading",
+      "expectSource": "Inhoudsopgave",
+      "expectLang": "nl-NL",
+      "expectLangSource": "tag",
+      "translatable": true,
+      "skipReason": null,
+      "runCount": 1,
+      "note": "TOC の「タイトル見出し」は可視テキスト＝翻訳対象。フィールドとは別物"
+    },
+    {
+      "key": "toc-field-cache",
+      "part": "word/document.xml",
+      "role": "toc",
+      "expectSource": null,
+      "expectLang": null,
+      "expectLangSource": "default",
+      "translatable": false,
+      "skipReason": "field",
+      "note": "複合フィールド begin/instrText/separate/キャッシュ/end。命令もキャッシュも翻訳対象外（再生成する）"
+    },
+    {
+      "key": "mixed-script",
+      "part": "word/document.xml",
+      "role": "body",
+      "expectSource": "Overview 概要",
+      "expectLang": "en-US",
+      "expectLangSource": "tag",
+      "translatable": true,
+      "skipReason": null,
+      "runCount": 1,
+      "scripts": [
+        "Latin",
+        "Han"
+      ],
+      "note": "混在スクリプト。reader は w:val/w:eastAsia の両方を拾えること"
+    },
+    {
+      "key": "numeric",
+      "part": "word/document.xml",
+      "role": "body",
+      "expectSource": "€ 1.250.000",
+      "expectLang": null,
+      "expectLangSource": "detect",
+      "translatable": false,
+      "skipReason": "numeric",
+      "runCount": 1,
+      "note": "数値・記号のみ。DeepL は値を変えない前提なので翻訳対象外"
+    },
+    {
+      "key": "header-text",
+      "part": "word/header1.xml",
+      "role": "header",
+      "expectSource": "Vertrouwelijk",
+      "expectLang": "nl-NL",
+      "expectLangSource": "tag",
+      "translatable": true,
+      "skipReason": null,
+      "runCount": 1,
+      "note": "document.xml 以外（header1.xml）。reader の取りこぼし検証"
+    },
+    {
+      "key": "footer-pagefield",
+      "part": "word/footer1.xml",
+      "role": "footer",
+      "expectSource": null,
+      "expectLang": null,
+      "expectLangSource": "default",
+      "translatable": false,
+      "skipReason": "field",
+      "note": "フッタ内 PAGE フィールド。フィールドは part を問わず skip"
+    }
+  ]
+}
