@@ -27,7 +27,7 @@
  */
 
 import { readFileSync } from 'node:fs';
-import type { IRDocument } from '../src/types.js';
+import type { IRDocument } from './types.js';
 
 export interface DtirIssue {
   /** 問題のあるセグメント id（文書レベルの問題は null）。 */

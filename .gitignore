@@ -1,0 +1,26 @@
+# dependencies & build
+node_modules/
+dist/
+*.tsbuildinfo
+
+# logs
+*.log
+npm-debug.log*
+.npm/
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# mount / LibreOffice leftovers
+.fuse_hidden*
+*.orphaned
+.~lock.*#
+*.tmp
+
+# generator scratch output (committed fixtures live in fixtures/docx & fixtures/pdf)
+out/
+
+# coverage
+coverage/

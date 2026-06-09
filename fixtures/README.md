@@ -67,4 +67,4 @@ fixtures/
 - docx は valid zip、全 OOXML パートが XML well-formed
 - LibreOffice が docx を開いて pdf 化できる（＝Word 互換の妥当性）
 - pdf に nl/fr/de/ja＋ヘッダの全言語テキストがレンダリングされる
-- 意味検査は [`../tools/validate-dtir.ts`](../tools/validate-dtir.ts) を流用（reader 出力 DTIR に対して実行）
+- 意味検査は [`../src/validate-dtir.ts`](../src/validate-dtir.ts) を流用（reader 出力 DTIR に対して実行）

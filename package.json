@@ -1,0 +1,29 @@
+{
+  "name": "@shuji-bonji/doc-translation-ir",
+  "version": "0.1.0",
+  "description": "DTIR — Document Translation Intermediate Representation: contract types, JSON Schema, and the semantic validator (validate-dtir)",
+  "type": "module",
+  "exports": {
+    ".": { "types": "./src/types.ts", "import": "./src/types.ts" },
+    "./validate": { "types": "./src/validate-dtir.ts", "import": "./src/validate-dtir.ts" },
+    "./schema": "./schema/dtir-0.1.schema.json"
+  },
+  "files": ["src", "schema", "README.md"],
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "validate": "tsx src/validate-dtir.ts"
+  },
+  "engines": { "node": ">=20" },
+  "keywords": ["dtir", "translation", "intermediate-representation", "docx", "pdf", "contract"],
+  "author": "shuji-bonji",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shuji-bonji/doc-translation-ir.git"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
