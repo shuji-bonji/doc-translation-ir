@@ -1,3 +1,5 @@
+**日本語** | [English](./README.en.md)
+
 # DTIR fixtures — テスト駆動の土台
 
 `dtir-ooxml-reader-mcp` / `pdf-reader` / `*-writer` の回帰テスト用フィクスチャ。

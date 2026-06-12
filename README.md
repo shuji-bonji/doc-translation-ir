@@ -1,3 +1,5 @@
+**日本語** | [English](./README.en.md)
+
 # DTIR — Document Translation Intermediate Representation `v0.1`
 
 混在言語ドキュメント（`.docx` / `.pdf`）を **書式・ページ・画像位置を崩さずに** 翻訳するための、
