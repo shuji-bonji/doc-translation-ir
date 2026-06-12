@@ -48,6 +48,13 @@
       "where": "段内太字(直下run)",
       "expectExtractedNow": true,
       "note": "抽出はされるが writer collapse で \"mandatory\" の太字が失われる"
+    },
+    {
+      "key": "de-bold-reorder",
+      "text": "gestern",
+      "where": "段内太字(de→en で文中→文末へ語順移動)",
+      "expectExtractedNow": true,
+      "note": "runs モードで <x> タグが太字語に追従できるかの最難ケース。独語の文中 \"gestern\" が英訳で \"yesterday\" として文末へ動く（DeepL tag_handling の実機確認用）"
     }
   ]
 }

@@ -57,6 +57,7 @@ const probes: Probe[] = [
   { key: 'footnote-text', text: 'Vertrouwelijke voetnoot.', where: 'footnotes.xml', expectExtractedNow: false, note: 'footnotes.xml はパート列挙の対象外' },
   { key: 'tracked-ins-text', text: 'is strictly binding', where: 'w:ins 内 run', expectExtractedNow: false, note: 'w:ins内runは段落直下でないため未取得→文が分断される' },
   { key: 'bold-extracted', text: 'Payment is mandatory now.', where: '段内太字(直下run)', expectExtractedNow: true, note: '抽出はされるが writer collapse で "mandatory" の太字が失われる' },
+  { key: 'de-bold-reorder', text: 'gestern', where: '段内太字(de→en で文中→文末へ語順移動)', expectExtractedNow: true, note: 'runs モードで <x> タグが太字語に追従できるかの最難ケース。独語の文中 "gestern" が英訳で "yesterday" として文末へ動く（DeepL tag_handling の実機確認用）' },
 ];
 
 // ---------------------------------------------------------------------------
@@ -124,6 +125,10 @@ const insP = `<w:p>${run('The deadline ', { preserve: true })}<w:ins w:id="1" w:
 
 const boldP = `<w:p>${run('Payment is ', { preserve: true })}${run('mandatory', { bold: true })}${run(' now.', { preserve: true })}</w:p>`;
 
+// de→en で太字語が文中→文末へ動く（runs モードのタグ追従の最難ケース）。
+// "Der Vertrag wurde gestern unterzeichnet." → "The contract was signed yesterday."
+const deBoldReorderP = `<w:p>${run('Der Vertrag wurde ', { lang: 'de-DE', preserve: true })}${run('gestern', { lang: 'de-DE', bold: true })}${run(' unterzeichnet.', { lang: 'de-DE', preserve: true })}</w:p>`;
+
 const documentXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <w:document xmlns:w="${W}" xmlns:r="${R}">
   <w:body>
@@ -133,6 +138,7 @@ const documentXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     ${footnoteRefP}
     ${insP}
     ${boldP}
+    ${deBoldReorderP}
     <w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1417" w:right="1417" w:bottom="1417" w:left="1417"/></w:sectPr>
   </w:body>
 </w:document>`;

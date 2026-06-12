@@ -3,8 +3,8 @@
   "source": {
     "format": "docx",
     "fileName": "work-doc-torture.docx",
-    "sha256": "0b68f675ee14bfb22f5e614e64e6c6adeece2f8ebe922202031ccdf69fc06a93",
-    "byteSize": 3295
+    "sha256": "e53c1828904ea758f5a4b89dd13a795dd8e0052359fcf6442e4aef3a435bacfc",
+    "byteSize": 3338
   },
   "language": {
     "default": {
@@ -411,6 +411,66 @@
       "group": "en-GB",
       "context": {
         "prev": "seg_3510985a9d",
+        "next": "seg_5624229a68",
+        "parent": null
+      },
+      "translation": null,
+      "quality": null
+    },
+    {
+      "id": "seg_5624229a68",
+      "order": 8,
+      "anchor": {
+        "format": "docx",
+        "ref": {
+          "part": "word/document.xml",
+          "path": "/w:body[1]/w:p[6]",
+          "runIds": [
+            "seg_5624229a68-r0",
+            "seg_5624229a68-r1",
+            "seg_5624229a68-r2"
+          ]
+        }
+      },
+      "role": "body",
+      "text": {
+        "source": "Der Vertrag wurde gestern unterzeichnet.",
+        "hasInlineFormatting": true,
+        "runs": [
+          {
+            "runId": "seg_5624229a68-r0",
+            "start": 0,
+            "end": 18
+          },
+          {
+            "runId": "seg_5624229a68-r1",
+            "start": 18,
+            "end": 25
+          },
+          {
+            "runId": "seg_5624229a68-r2",
+            "start": 25,
+            "end": 40
+          }
+        ],
+        "space": "preserve"
+      },
+      "language": {
+        "value": "de-DE",
+        "confidence": 0.95,
+        "source": "tag",
+        "candidates": [
+          {
+            "value": "de-DE",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "translatable": true,
+      "skipReason": null,
+      "group": "de-DE",
+      "context": {
+        "prev": "seg_99088c6492",
         "next": "seg_528f852d1d",
         "parent": null
       },
@@ -419,7 +479,7 @@
     },
     {
       "id": "seg_528f852d1d",
-      "order": 8,
+      "order": 9,
       "anchor": {
         "format": "docx",
         "ref": {
@@ -451,7 +511,7 @@
       "skipReason": null,
       "group": "nl-NL",
       "context": {
-        "prev": "seg_99088c6492",
+        "prev": "seg_5624229a68",
         "next": null,
         "parent": null
       },
@@ -460,8 +520,8 @@
     }
   ],
   "stats": {
-    "segmentCount": 9,
-    "translatableCount": 9,
+    "segmentCount": 10,
+    "translatableCount": 10,
     "groupCount": 4
   }
 }
