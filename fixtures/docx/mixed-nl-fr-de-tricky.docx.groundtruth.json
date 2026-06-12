@@ -7,6 +7,7 @@
     "nl-NL",
     "fr-FR",
     "de-DE",
+    "ja-JP",
     "en-US"
   ],
   "parts": [
@@ -49,6 +50,18 @@
       "skipReason": null,
       "runCount": 1,
       "note": "タグ欠落で既定 nl-NL を継承するが内容は独語。detect が tag/default を覆すべき"
+    },
+    {
+      "key": "body-ja",
+      "part": "word/document.xml",
+      "role": "body",
+      "expectSource": "当社は来年、海外市場へ進出します。",
+      "expectLang": "ja-JP",
+      "expectLangSource": "detect",
+      "translatable": true,
+      "skipReason": null,
+      "runCount": 1,
+      "note": "日本語段落。w:eastAsia=ja-JP のみで w:val 無し → detect が ja-JP を当てる(CJK)"
     },
     {
       "key": "toc-title",

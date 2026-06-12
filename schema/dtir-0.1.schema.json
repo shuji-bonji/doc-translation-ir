@@ -166,7 +166,8 @@
         "engine": { "type": "string" },
         "sourceLangUsed": { "$ref": "#/$defs/bcp47" },
         "targetLang": { "type": "string" },
-        "at": { "type": "string", "format": "date-time" }
+        "at": { "type": "string", "format": "date-time" },
+        "runTexts": { "type": "array", "items": { "type": "string" } }
       }
     },
     "qualityError": {

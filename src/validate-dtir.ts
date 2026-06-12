@@ -45,7 +45,9 @@ export interface DtirIssue {
     | 'translatable-without-group'
     | 'non-translatable-with-group'
     | 'context-dangling'
-    | 'order-not-sequential';
+    | 'order-not-sequential'
+    | 'runtexts-join-mismatch'
+    | 'runtexts-count-mismatch';
   message: string;
 }
 
@@ -135,6 +137,24 @@ export function validateDtir(doc: IRDocument): DtirIssue[] {
           s.id,
           'run-incomplete-coverage',
           `runs が source 全域を被覆していない（末尾=${prevEnd}, len=${len}）`,
+        );
+      }
+    }
+
+    // translation.runTexts（脱collapse）: 連結が text に一致し、runs があれば数が一致する
+    if (s.translation?.runTexts) {
+      if (s.translation.runTexts.join('') !== s.translation.text) {
+        push(
+          s.id,
+          'runtexts-join-mismatch',
+          'translation.runTexts の連結が translation.text と一致しない',
+        );
+      }
+      if (s.text.runs && s.text.runs.length !== s.translation.runTexts.length) {
+        push(
+          s.id,
+          'runtexts-count-mismatch',
+          `translation.runTexts の数(${s.translation.runTexts.length})が text.runs(${s.text.runs.length})と不一致`,
         );
       }
     }

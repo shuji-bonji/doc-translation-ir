@@ -143,6 +143,24 @@ const cases: Case[] = [
     },
   },
   {
+    key: 'body-ja',
+    part: 'document',
+    role: 'body',
+    kind: 'text',
+    // 日本語段落。w:eastAsia=ja-JP のみ（ラテン用 w:val は無し）。
+    // run-level の明示 val が無いので reader は detect で ja-JP を当てる（CJK 判定）。
+    runs: [{ text: '当社は来年、海外市場へ進出します。', lang: { eastAsia: 'ja-JP' } }],
+    expect: {
+      source: '当社は来年、海外市場へ進出します。',
+      lang: 'ja-JP',
+      langSource: 'detect',
+      translatable: true,
+      skipReason: null,
+      runCount: 1,
+      note: '日本語段落。w:eastAsia=ja-JP のみで w:val 無し → detect が ja-JP を当てる(CJK)',
+    },
+  },
+  {
     key: 'toc-title',
     part: 'document',
     role: 'heading',

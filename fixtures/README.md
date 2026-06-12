@@ -20,6 +20,7 @@ flowchart LR
 | `heading-nl`       | 正しい `<w:lang>` タグ                                     | `nl-NL` / source=tag / 翻訳対象                     |
 | `body-fr-split`    | **1文が3ランに分断**（先頭ボールド）                       | `fr-FR` / `runCount:3` / `hasInlineFormatting:true` |
 | `body-de-notag`    | **タグ欠落で既定 nl-NL を継承するが内容は独語**            | `de-DE` / source=**detect**（tag/defaultを覆す）    |
+| `body-ja`          | **日本語段落**（`w:eastAsia=ja-JP` のみ・`w:val` 無し）    | `ja-JP` / source=**detect**（CJK 判定）             |
 | `toc-title`        | TOC の**タイトル見出し**は可視テキスト                     | `nl-NL` / 翻訳対象（フィールドと別物）              |
 | `toc-field-cache`  | **複合フィールド** begin/instrText/separate/キャッシュ/end | translatable=false / skip=`field`                   |
 | `mixed-script`     | ラテン＋漢字混在（`w:val`＋`w:eastAsia`）                  | `en-US` / scripts=[Latin,Han]                       |

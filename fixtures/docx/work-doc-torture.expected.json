@@ -1,0 +1,53 @@
+{
+  "fixture": "work-doc-torture.docx",
+  "description": "実務文書で頻出するが v0.1 reader が取りこぼす構造の集合。再帰走査の目標。",
+  "probes": [
+    {
+      "key": "table-cell-nl",
+      "text": "Artikel 1",
+      "where": "表セル(1,1)",
+      "expectExtractedNow": false,
+      "note": "w:tbl内段落は body直下でないため未走査"
+    },
+    {
+      "key": "table-cell-fr",
+      "text": "Conditions générales",
+      "where": "表セル(1,2)",
+      "expectExtractedNow": false
+    },
+    {
+      "key": "table-merged-de",
+      "text": "Zusammenfassung der Bedingungen",
+      "where": "表 結合セル(gridSpan=2)",
+      "expectExtractedNow": false
+    },
+    {
+      "key": "hyperlink-text",
+      "text": "the signed contract",
+      "where": "w:hyperlink 内 run",
+      "expectExtractedNow": false,
+      "note": "w:hyperlink内runは段落直下でないため未取得→文が分断される"
+    },
+    {
+      "key": "footnote-text",
+      "text": "Vertrouwelijke voetnoot.",
+      "where": "footnotes.xml",
+      "expectExtractedNow": false,
+      "note": "footnotes.xml はパート列挙の対象外"
+    },
+    {
+      "key": "tracked-ins-text",
+      "text": "is strictly binding",
+      "where": "w:ins 内 run",
+      "expectExtractedNow": false,
+      "note": "w:ins内runは段落直下でないため未取得→文が分断される"
+    },
+    {
+      "key": "bold-extracted",
+      "text": "Payment is mandatory now.",
+      "where": "段内太字(直下run)",
+      "expectExtractedNow": true,
+      "note": "抽出はされるが writer collapse で \"mandatory\" の太字が失われる"
+    }
+  ]
+}

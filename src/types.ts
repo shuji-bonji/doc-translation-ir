@@ -74,7 +74,10 @@ export interface IRAnchor {
   format: DocFormat;
   /**
    * フォーマット固有の参照（spec MCP が規定）。
-   * - docx 規範例: { part:'word/document.xml', path:'/w:document/w:body/w:p[12]', runIds:['r0','r1'] }
+   * path は part の documentElement 起点で `tag[idx]`（同名兄弟内1始まり）を辿る構造パス。
+   * 表セルや脚注などの入れ子も同形式で表す（reader が書き、writer の汎用ナビゲータが解決）。
+   * - docx 規範例: { part:'word/document.xml', path:'/w:body[1]/w:p[12]', runIds:['r0','r1'] }
+   * - docx 入れ子例: path:'/w:body[1]/w:tbl[1]/w:tr[2]/w:tc[1]/w:p[1]'（表セル）、'/w:footnote[3]/w:p[1]'（脚注）
    * - pdf 規範例:  { page:4, mcid:17, structRef:'...', bbox:[x0,y0,x1,y1] }
    */
   ref: Record<string, unknown>;
@@ -149,6 +152,14 @@ export interface SegmentTranslation {
   targetLang: Bcp47;
   /** ISO 8601。 */
   at: string;
+  /**
+   * 任意・前方互換フィールド（v0.2 脱collapse）。`anchor.ref.runIds` の順に整列した
+   * **ラン別の訳文**。translate がインラインマーカー翻訳で各ランの訳を復元できたときだけ埋める。
+   * 連結（`runTexts.join('')`）は `text` に一致する。tag-aware writer はこれがあり、かつ
+   * 段落のテキストラン数と一致するとき各ランの rPr（太字・色・リンク）を保ったまま訳を分配する。
+   * 無い／数が合わないときは writer は collapse にフォールバック（fail-safe）。
+   */
+  runTexts?: string[];
 }
 
 export interface QualityError {

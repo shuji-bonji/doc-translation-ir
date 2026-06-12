@@ -1,0 +1,467 @@
+{
+  "irVersion": "0.1",
+  "source": {
+    "format": "docx",
+    "fileName": "work-doc-torture.docx",
+    "sha256": "0b68f675ee14bfb22f5e614e64e6c6adeece2f8ebe922202031ccdf69fc06a93",
+    "byteSize": 3295
+  },
+  "language": {
+    "default": {
+      "value": "en-GB",
+      "source": "container-default"
+    },
+    "target": "en-GB",
+    "multilingual": {
+      "isMultilingual": true,
+      "score": 0.75,
+      "method": "per-segment",
+      "languagesPresent": [
+        "en-GB",
+        "nl-NL",
+        "fr-FR",
+        "de-DE"
+      ]
+    }
+  },
+  "segments": [
+    {
+      "id": "seg_fc395be307",
+      "order": 0,
+      "anchor": {
+        "format": "docx",
+        "ref": {
+          "part": "word/document.xml",
+          "path": "/w:body[1]/w:p[1]",
+          "runIds": [
+            "seg_fc395be307-r0"
+          ]
+        }
+      },
+      "role": "body",
+      "text": {
+        "source": "Work-document torture fixture",
+        "hasInlineFormatting": false,
+        "space": "default"
+      },
+      "language": {
+        "value": "en-GB",
+        "confidence": 0.95,
+        "source": "tag",
+        "candidates": [
+          {
+            "value": "en-GB",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "translatable": true,
+      "skipReason": null,
+      "group": "en-GB",
+      "context": {
+        "prev": null,
+        "next": "seg_885118fdbf",
+        "parent": null
+      },
+      "translation": null,
+      "quality": null
+    },
+    {
+      "id": "seg_885118fdbf",
+      "order": 1,
+      "anchor": {
+        "format": "docx",
+        "ref": {
+          "part": "word/document.xml",
+          "path": "/w:body[1]/w:tbl[1]/w:tr[1]/w:tc[1]/w:p[1]",
+          "runIds": [
+            "seg_885118fdbf-r0"
+          ]
+        }
+      },
+      "role": "table-cell",
+      "text": {
+        "source": "Artikel 1",
+        "hasInlineFormatting": false,
+        "space": "default"
+      },
+      "language": {
+        "value": "nl-NL",
+        "confidence": 0.95,
+        "source": "tag",
+        "candidates": [
+          {
+            "value": "nl-NL",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "translatable": true,
+      "skipReason": null,
+      "group": "nl-NL",
+      "context": {
+        "prev": "seg_fc395be307",
+        "next": "seg_076797c16b",
+        "parent": null
+      },
+      "translation": null,
+      "quality": null
+    },
+    {
+      "id": "seg_076797c16b",
+      "order": 2,
+      "anchor": {
+        "format": "docx",
+        "ref": {
+          "part": "word/document.xml",
+          "path": "/w:body[1]/w:tbl[1]/w:tr[1]/w:tc[2]/w:p[1]",
+          "runIds": [
+            "seg_076797c16b-r0"
+          ]
+        }
+      },
+      "role": "table-cell",
+      "text": {
+        "source": "Conditions générales",
+        "hasInlineFormatting": false,
+        "space": "default"
+      },
+      "language": {
+        "value": "fr-FR",
+        "confidence": 0.95,
+        "source": "tag",
+        "candidates": [
+          {
+            "value": "fr-FR",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "translatable": true,
+      "skipReason": null,
+      "group": "fr-FR",
+      "context": {
+        "prev": "seg_885118fdbf",
+        "next": "seg_cb3c8677f3",
+        "parent": null
+      },
+      "translation": null,
+      "quality": null
+    },
+    {
+      "id": "seg_cb3c8677f3",
+      "order": 3,
+      "anchor": {
+        "format": "docx",
+        "ref": {
+          "part": "word/document.xml",
+          "path": "/w:body[1]/w:tbl[1]/w:tr[2]/w:tc[1]/w:p[1]",
+          "runIds": [
+            "seg_cb3c8677f3-r0"
+          ]
+        }
+      },
+      "role": "table-cell",
+      "text": {
+        "source": "Zusammenfassung der Bedingungen",
+        "hasInlineFormatting": false,
+        "space": "default"
+      },
+      "language": {
+        "value": "de-DE",
+        "confidence": 0.95,
+        "source": "tag",
+        "candidates": [
+          {
+            "value": "de-DE",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "translatable": true,
+      "skipReason": null,
+      "group": "de-DE",
+      "context": {
+        "prev": "seg_076797c16b",
+        "next": "seg_cf1bd852da",
+        "parent": null
+      },
+      "translation": null,
+      "quality": null
+    },
+    {
+      "id": "seg_cf1bd852da",
+      "order": 4,
+      "anchor": {
+        "format": "docx",
+        "ref": {
+          "part": "word/document.xml",
+          "path": "/w:body[1]/w:p[2]",
+          "runIds": [
+            "seg_cf1bd852da-r0",
+            "seg_cf1bd852da-r1",
+            "seg_cf1bd852da-r2"
+          ]
+        }
+      },
+      "role": "body",
+      "text": {
+        "source": "See the signed contract for the full terms.",
+        "hasInlineFormatting": true,
+        "runs": [
+          {
+            "runId": "seg_cf1bd852da-r0",
+            "start": 0,
+            "end": 4
+          },
+          {
+            "runId": "seg_cf1bd852da-r1",
+            "start": 4,
+            "end": 23
+          },
+          {
+            "runId": "seg_cf1bd852da-r2",
+            "start": 23,
+            "end": 43
+          }
+        ],
+        "space": "preserve"
+      },
+      "language": {
+        "value": "en-GB",
+        "confidence": 0.3,
+        "source": "default"
+      },
+      "translatable": true,
+      "skipReason": null,
+      "group": "en-GB",
+      "context": {
+        "prev": "seg_cb3c8677f3",
+        "next": "seg_a828ebd84b",
+        "parent": null
+      },
+      "translation": null,
+      "quality": null
+    },
+    {
+      "id": "seg_a828ebd84b",
+      "order": 5,
+      "anchor": {
+        "format": "docx",
+        "ref": {
+          "part": "word/document.xml",
+          "path": "/w:body[1]/w:p[3]",
+          "runIds": [
+            "seg_a828ebd84b-r0",
+            "seg_a828ebd84b-r1"
+          ]
+        }
+      },
+      "role": "body",
+      "text": {
+        "source": "Zie de bijgevoegde voorwaarden.",
+        "hasInlineFormatting": true,
+        "runs": [
+          {
+            "runId": "seg_a828ebd84b-r0",
+            "start": 0,
+            "end": 30
+          },
+          {
+            "runId": "seg_a828ebd84b-r1",
+            "start": 30,
+            "end": 31
+          }
+        ],
+        "space": "preserve"
+      },
+      "language": {
+        "value": "nl-NL",
+        "confidence": 0.95,
+        "source": "tag",
+        "candidates": [
+          {
+            "value": "nl-NL",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "translatable": true,
+      "skipReason": null,
+      "group": "nl-NL",
+      "context": {
+        "prev": "seg_cf1bd852da",
+        "next": "seg_3510985a9d",
+        "parent": null
+      },
+      "translation": null,
+      "quality": null
+    },
+    {
+      "id": "seg_3510985a9d",
+      "order": 6,
+      "anchor": {
+        "format": "docx",
+        "ref": {
+          "part": "word/document.xml",
+          "path": "/w:body[1]/w:p[4]",
+          "runIds": [
+            "seg_3510985a9d-r0",
+            "seg_3510985a9d-r1",
+            "seg_3510985a9d-r2"
+          ]
+        }
+      },
+      "role": "body",
+      "text": {
+        "source": "The deadline is strictly binding.",
+        "hasInlineFormatting": true,
+        "runs": [
+          {
+            "runId": "seg_3510985a9d-r0",
+            "start": 0,
+            "end": 13
+          },
+          {
+            "runId": "seg_3510985a9d-r1",
+            "start": 13,
+            "end": 32
+          },
+          {
+            "runId": "seg_3510985a9d-r2",
+            "start": 32,
+            "end": 33
+          }
+        ],
+        "space": "preserve"
+      },
+      "language": {
+        "value": "en-GB",
+        "confidence": 1,
+        "source": "detect",
+        "candidates": [
+          {
+            "value": "en-GB",
+            "confidence": 1
+          }
+        ]
+      },
+      "translatable": true,
+      "skipReason": null,
+      "group": "en-GB",
+      "context": {
+        "prev": "seg_a828ebd84b",
+        "next": "seg_99088c6492",
+        "parent": null
+      },
+      "translation": null,
+      "quality": null
+    },
+    {
+      "id": "seg_99088c6492",
+      "order": 7,
+      "anchor": {
+        "format": "docx",
+        "ref": {
+          "part": "word/document.xml",
+          "path": "/w:body[1]/w:p[5]",
+          "runIds": [
+            "seg_99088c6492-r0",
+            "seg_99088c6492-r1",
+            "seg_99088c6492-r2"
+          ]
+        }
+      },
+      "role": "body",
+      "text": {
+        "source": "Payment is mandatory now.",
+        "hasInlineFormatting": true,
+        "runs": [
+          {
+            "runId": "seg_99088c6492-r0",
+            "start": 0,
+            "end": 11
+          },
+          {
+            "runId": "seg_99088c6492-r1",
+            "start": 11,
+            "end": 20
+          },
+          {
+            "runId": "seg_99088c6492-r2",
+            "start": 20,
+            "end": 25
+          }
+        ],
+        "space": "preserve"
+      },
+      "language": {
+        "value": "en-GB",
+        "confidence": 1,
+        "source": "detect",
+        "candidates": [
+          {
+            "value": "en-GB",
+            "confidence": 1
+          }
+        ]
+      },
+      "translatable": true,
+      "skipReason": null,
+      "group": "en-GB",
+      "context": {
+        "prev": "seg_3510985a9d",
+        "next": "seg_528f852d1d",
+        "parent": null
+      },
+      "translation": null,
+      "quality": null
+    },
+    {
+      "id": "seg_528f852d1d",
+      "order": 8,
+      "anchor": {
+        "format": "docx",
+        "ref": {
+          "part": "word/footnotes.xml",
+          "path": "/w:footnote[3]/w:p[1]",
+          "runIds": [
+            "seg_528f852d1d-r0"
+          ]
+        }
+      },
+      "role": "footnote",
+      "text": {
+        "source": "Vertrouwelijke voetnoot.",
+        "hasInlineFormatting": false,
+        "space": "default"
+      },
+      "language": {
+        "value": "nl-NL",
+        "confidence": 0.95,
+        "source": "tag",
+        "candidates": [
+          {
+            "value": "nl-NL",
+            "confidence": 0.95
+          }
+        ]
+      },
+      "translatable": true,
+      "skipReason": null,
+      "group": "nl-NL",
+      "context": {
+        "prev": "seg_99088c6492",
+        "next": null,
+        "parent": null
+      },
+      "translation": null,
+      "quality": null
+    }
+  ],
+  "stats": {
+    "segmentCount": 9,
+    "translatableCount": 9,
+    "groupCount": 4
+  }
+}

@@ -3,38 +3,39 @@
   "source": {
     "format": "docx",
     "fileName": "mixed-nl-fr-de-tricky.docx",
-    "sha256": "10ada05dcfb414d5ef3d1cdd75f64ca075ef497a17beed65fdf1331fee69c30b",
-    "byteSize": 3382
+    "sha256": "8a8161dca123f21b4f31b4264161ae06753f5d88c3a86251207ed7c1060ca6ba",
+    "byteSize": 3459
   },
   "language": {
     "default": {
       "value": "nl-NL",
       "source": "container-default"
     },
-    "target": null,
+    "target": "en-GB",
     "multilingual": {
       "isMultilingual": true,
-      "score": 0.75,
+      "score": 0.8,
       "method": "per-segment",
       "languagesPresent": [
         "nl-NL",
         "fr-FR",
         "de-DE",
+        "ja-JP",
         "en-US"
       ]
     }
   },
   "segments": [
     {
-      "id": "seg_58a194220a",
+      "id": "seg_fc395be307",
       "order": 0,
       "anchor": {
         "format": "docx",
         "ref": {
           "part": "word/document.xml",
-          "path": "/w:body/w:p[1]",
+          "path": "/w:body[1]/w:p[1]",
           "runIds": [
-            "seg_58a194220a-r0"
+            "seg_fc395be307-r0"
           ]
         }
       },
@@ -60,24 +61,24 @@
       "group": "nl-NL",
       "context": {
         "prev": null,
-        "next": "seg_c1b8e24f1b",
+        "next": "seg_cf1bd852da",
         "parent": null
       },
       "translation": null,
       "quality": null
     },
     {
-      "id": "seg_c1b8e24f1b",
+      "id": "seg_cf1bd852da",
       "order": 1,
       "anchor": {
         "format": "docx",
         "ref": {
           "part": "word/document.xml",
-          "path": "/w:body/w:p[2]",
+          "path": "/w:body[1]/w:p[2]",
           "runIds": [
-            "seg_c1b8e24f1b-r0",
-            "seg_c1b8e24f1b-r1",
-            "seg_c1b8e24f1b-r2"
+            "seg_cf1bd852da-r0",
+            "seg_cf1bd852da-r1",
+            "seg_cf1bd852da-r2"
           ]
         }
       },
@@ -87,17 +88,17 @@
         "hasInlineFormatting": true,
         "runs": [
           {
-            "runId": "seg_c1b8e24f1b-r0",
+            "runId": "seg_cf1bd852da-r0",
             "start": 0,
             "end": 14
           },
           {
-            "runId": "seg_c1b8e24f1b-r1",
+            "runId": "seg_cf1bd852da-r1",
             "start": 14,
             "end": 35
           },
           {
-            "runId": "seg_c1b8e24f1b-r2",
+            "runId": "seg_cf1bd852da-r2",
             "start": 35,
             "end": 60
           }
@@ -119,23 +120,23 @@
       "skipReason": null,
       "group": "fr-FR",
       "context": {
-        "prev": "seg_58a194220a",
-        "next": "seg_a71364e203",
+        "prev": "seg_fc395be307",
+        "next": "seg_a828ebd84b",
         "parent": null
       },
       "translation": null,
       "quality": null
     },
     {
-      "id": "seg_a71364e203",
+      "id": "seg_a828ebd84b",
       "order": 2,
       "anchor": {
         "format": "docx",
         "ref": {
           "part": "word/document.xml",
-          "path": "/w:body/w:p[3]",
+          "path": "/w:body[1]/w:p[3]",
           "runIds": [
-            "seg_a71364e203-r0"
+            "seg_a828ebd84b-r0"
           ]
         }
       },
@@ -160,23 +161,64 @@
       "skipReason": null,
       "group": "de-DE",
       "context": {
-        "prev": "seg_c1b8e24f1b",
-        "next": "seg_d3b7d4755b",
+        "prev": "seg_cf1bd852da",
+        "next": "seg_3510985a9d",
         "parent": null
       },
       "translation": null,
       "quality": null
     },
     {
-      "id": "seg_d3b7d4755b",
+      "id": "seg_3510985a9d",
       "order": 3,
       "anchor": {
         "format": "docx",
         "ref": {
           "part": "word/document.xml",
-          "path": "/w:body/w:p[4]",
+          "path": "/w:body[1]/w:p[4]",
           "runIds": [
-            "seg_d3b7d4755b-r0"
+            "seg_3510985a9d-r0"
+          ]
+        }
+      },
+      "role": "body",
+      "text": {
+        "source": "当社は来年、海外市場へ進出します。",
+        "hasInlineFormatting": false,
+        "space": "default"
+      },
+      "language": {
+        "value": "ja-JP",
+        "confidence": 1,
+        "source": "detect",
+        "candidates": [
+          {
+            "value": "ja-JP",
+            "confidence": 1
+          }
+        ]
+      },
+      "translatable": true,
+      "skipReason": null,
+      "group": "ja-JP",
+      "context": {
+        "prev": "seg_a828ebd84b",
+        "next": "seg_99088c6492",
+        "parent": null
+      },
+      "translation": null,
+      "quality": null
+    },
+    {
+      "id": "seg_99088c6492",
+      "order": 4,
+      "anchor": {
+        "format": "docx",
+        "ref": {
+          "part": "word/document.xml",
+          "path": "/w:body[1]/w:p[5]",
+          "runIds": [
+            "seg_99088c6492-r0"
           ]
         }
       },
@@ -201,24 +243,24 @@
       "skipReason": null,
       "group": "nl-NL",
       "context": {
-        "prev": "seg_a71364e203",
-        "next": "seg_65a3d4bd42",
+        "prev": "seg_3510985a9d",
+        "next": "seg_5624229a68",
         "parent": null
       },
       "translation": null,
       "quality": null
     },
     {
-      "id": "seg_65a3d4bd42",
-      "order": 4,
+      "id": "seg_5624229a68",
+      "order": 5,
       "anchor": {
         "format": "docx",
         "ref": {
           "part": "word/document.xml",
-          "path": "/w:body/w:p[5]",
+          "path": "/w:body[1]/w:p[6]",
           "runIds": [
-            "seg_65a3d4bd42-r0",
-            "seg_65a3d4bd42-r1"
+            "seg_5624229a68-r0",
+            "seg_5624229a68-r1"
           ]
         }
       },
@@ -228,12 +270,12 @@
         "hasInlineFormatting": true,
         "runs": [
           {
-            "runId": "seg_65a3d4bd42-r0",
+            "runId": "seg_5624229a68-r0",
             "start": 0,
             "end": 10
           },
           {
-            "runId": "seg_65a3d4bd42-r1",
+            "runId": "seg_5624229a68-r1",
             "start": 10,
             "end": 12
           }
@@ -249,23 +291,23 @@
       "skipReason": "field",
       "group": null,
       "context": {
-        "prev": "seg_d3b7d4755b",
-        "next": "seg_a8696c8dfa",
+        "prev": "seg_99088c6492",
+        "next": "seg_eb70c18395",
         "parent": null
       },
       "translation": null,
       "quality": null
     },
     {
-      "id": "seg_a8696c8dfa",
-      "order": 5,
+      "id": "seg_eb70c18395",
+      "order": 6,
       "anchor": {
         "format": "docx",
         "ref": {
           "part": "word/document.xml",
-          "path": "/w:body/w:p[6]",
+          "path": "/w:body[1]/w:p[7]",
           "runIds": [
-            "seg_a8696c8dfa-r0"
+            "seg_eb70c18395-r0"
           ]
         }
       },
@@ -294,23 +336,23 @@
       "skipReason": null,
       "group": "en-US",
       "context": {
-        "prev": "seg_65a3d4bd42",
-        "next": "seg_3f4a67c296",
+        "prev": "seg_5624229a68",
+        "next": "seg_60e5bba8af",
         "parent": null
       },
       "translation": null,
       "quality": null
     },
     {
-      "id": "seg_3f4a67c296",
-      "order": 6,
+      "id": "seg_60e5bba8af",
+      "order": 7,
       "anchor": {
         "format": "docx",
         "ref": {
           "part": "word/document.xml",
-          "path": "/w:body/w:p[7]",
+          "path": "/w:body[1]/w:p[8]",
           "runIds": [
-            "seg_3f4a67c296-r0"
+            "seg_60e5bba8af-r0"
           ]
         }
       },
@@ -329,23 +371,23 @@
       "skipReason": "numeric",
       "group": null,
       "context": {
-        "prev": "seg_a8696c8dfa",
-        "next": "seg_dbd8855e2a",
+        "prev": "seg_eb70c18395",
+        "next": "seg_2cb806bba2",
         "parent": null
       },
       "translation": null,
       "quality": null
     },
     {
-      "id": "seg_dbd8855e2a",
-      "order": 7,
+      "id": "seg_2cb806bba2",
+      "order": 8,
       "anchor": {
         "format": "docx",
         "ref": {
           "part": "word/header1.xml",
-          "path": "/w:hdr/w:p[1]",
+          "path": "/w:p[1]",
           "runIds": [
-            "seg_dbd8855e2a-r0"
+            "seg_2cb806bba2-r0"
           ]
         }
       },
@@ -370,23 +412,23 @@
       "skipReason": null,
       "group": "nl-NL",
       "context": {
-        "prev": "seg_3f4a67c296",
-        "next": "seg_96b7eef2eb",
+        "prev": "seg_60e5bba8af",
+        "next": "seg_e4c3f2ecef",
         "parent": null
       },
       "translation": null,
       "quality": null
     },
     {
-      "id": "seg_96b7eef2eb",
-      "order": 8,
+      "id": "seg_e4c3f2ecef",
+      "order": 9,
       "anchor": {
         "format": "docx",
         "ref": {
           "part": "word/footer1.xml",
-          "path": "/w:ftr/w:p[1]",
+          "path": "/w:p[1]",
           "runIds": [
-            "seg_96b7eef2eb-r0"
+            "seg_e4c3f2ecef-r0"
           ]
         }
       },
@@ -405,7 +447,7 @@
       "skipReason": "field",
       "group": null,
       "context": {
-        "prev": "seg_dbd8855e2a",
+        "prev": "seg_2cb806bba2",
         "next": null,
         "parent": null
       },
@@ -414,8 +456,8 @@
     }
   ],
   "stats": {
-    "segmentCount": 9,
-    "translatableCount": 6,
-    "groupCount": 4
+    "segmentCount": 10,
+    "translatableCount": 7,
+    "groupCount": 5
   }
 }

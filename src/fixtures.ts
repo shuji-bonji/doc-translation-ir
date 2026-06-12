@@ -29,10 +29,23 @@ export const fixtureGroundtruthPath = p(
  */
 export const readerDtirPath = p('../fixtures/mixed-nl-fr-de-tricky.reader.dtir.json');
 
+/**
+ * 仕事文書 torture フィクスチャ（表/結合セル/混在言語・ハイパーリンク・脚注・追跡変更・段内太字）。
+ * 再帰走査のカバレッジ回帰に使う。expected.json は各 probe の所在と抽出可否予想を宣言。
+ */
+export const tortureDocxPath = p('../fixtures/docx/work-doc-torture.docx');
+export const tortureExpectedPath = p('../fixtures/docx/work-doc-torture.expected.json');
+
+/** torture docx を reader にかけた静的 DTIR（writer の入れ子アンカー解決テスト用・reader 非依存）。 */
+export const tortureReaderDtirPath = p('../fixtures/work-doc-torture.reader.dtir.json');
+
 /** 同梱フィクスチャの一覧（デバッグ用）。 */
 export const fixturePaths = {
   schemaPath,
   fixtureDocxPath,
   fixtureGroundtruthPath,
   readerDtirPath,
+  tortureDocxPath,
+  tortureExpectedPath,
+  tortureReaderDtirPath,
 } as const;
